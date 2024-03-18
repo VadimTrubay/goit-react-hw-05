@@ -1,17 +1,15 @@
-import { NavLink } from "react-router-dom";
-// import { useMemo } from "react";
-
-const API_KEY = "03528b4ebd79ba28525f11768a074497";
+import { NavLink, useLocation } from "react-router-dom";
 
 const MovieList = ({ movies }) => {
+  const location = useLocation();
 
   return (
     <div>
       <h1>Trending today</h1>
       <ul>
-        {movies.map(({id, title}) => (
+        {movies.map(({id, title, name}) => (
           <li key={id}>
-            {/* <NavLink to={}>{title}</NavLink> */}
+            <NavLink to={`/movies/${id}`} state={{from: location}}>{title ? title : name}</NavLink>
           </li>
         ))}
       </ul>

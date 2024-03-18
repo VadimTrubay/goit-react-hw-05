@@ -9,18 +9,20 @@ const options = {
     Authorization: API_TOKEN,
   },
 };
+const defaultParams = {
+  api_key: API_KEY,
+};
+const moviesApi = axios.create({
+  baseURL: BASE_URL,
+  params: defaultParams,
+});
 
-const getMovies = () => {
-  const urlgetMovies = `${BASE_URL}/trending/movie/&api_key=${API_KEY}`;
-  return axios.get(urlgetMovies, options);
+export const getMovies = async () => {
+  const data = await moviesApi.get("/trending/movie/week", options);
+  return data;
 };
 
-const getMoviesById = (movieId) => {
-  const urlgetMoviesById = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`;
-  return axios.get(urlgetMoviesById, options);
-};
-
-export default {
-  getMovies,
-  getMoviesById,
+export const getMovieById = async (movieId) => {
+  const data = await moviesApi.get(`/movie/${movieId}`, options);
+  return data;
 };
