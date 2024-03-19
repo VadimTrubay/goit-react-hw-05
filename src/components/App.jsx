@@ -1,6 +1,5 @@
 import { Routes, Route, NavLink } from "react-router-dom";
 import css from "./App.module.css";
-import Loader from "../components/Loader/Loader";
 import clsx from "clsx";
 import Home from "./../pages/Home";
 import Movies from "../pages/Movies";
@@ -12,8 +11,8 @@ const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
 };
 
-function App() {
-  
+const App = () => {
+
   return (
     <div>
       <nav className={css.nav}>
@@ -31,7 +30,7 @@ function App() {
         <Route
           path="/movies/:movieId"
           element={
-            <Suspense fallback={<Loader />}>
+            <Suspense fallback={<div>Loading...</div>}>
               <MovieDetail />
             </Suspense>
           }
