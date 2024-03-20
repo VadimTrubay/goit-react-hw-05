@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+}
+
+.img {
+  width: 500px;
+}
+
+.description {
+  display: inline-block;
+  margin: 20px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.genres {
+  /*list-style: none;*/
+  font-size: 0.8em;
+  margin-left: 10px;
+}
