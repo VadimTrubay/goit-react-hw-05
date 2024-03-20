@@ -10,7 +10,7 @@ const Home = () => {
         setMovies(data.results);
       }
     );
-  }, [movies])
+  }, [])
 
   return (
     <>
