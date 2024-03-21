@@ -24,13 +24,11 @@ export const getMovies = async () => {
 
 export const getMovieById = async (movieId) => {
   const response = await moviesApi.get(`movie/${movieId}`, options);
-  // console.log(response.data)
   return response.data;
 };
 
 export const getMovieCast = async (movieId) => {
   const response = await moviesApi.get(`/movie/${movieId}/credits`, options);
-  // console.log(response.data)
   return response.data;
 };
 

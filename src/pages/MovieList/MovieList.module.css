@@ -7,8 +7,8 @@
 }
 
 .movie_list_item {
-  flex: 0 0 calc(18% - 10px);
   display: flex;
+  flex: 0 0 calc(18% - 10px);
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -25,4 +25,8 @@
 .movie_list_title,
 .movie_list_release {
   font-size: 15px;
+}
+
+h1 {
+  text-align: center;
 }

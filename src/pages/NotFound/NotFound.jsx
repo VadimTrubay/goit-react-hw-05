@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 const NotFound = () => {
   return (
     <div className={css.not_found}>
-      <Link to={'/'}>Back to home page</Link>
+      <p><Link to={'/'}>Back to home page</Link></p>
       NotFound
     </div>
   )

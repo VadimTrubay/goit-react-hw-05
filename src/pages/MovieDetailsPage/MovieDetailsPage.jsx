@@ -3,8 +3,8 @@ import css from './MovieDetailsPage.module.css';
 import {NavLink, Outlet, useLocation, useParams} from 'react-router-dom';
 import {getMovieById} from '../../services/movieApi.js';
 import Loader from '../../components/Loader/Loader.jsx';
-// import {IoArrowBackOutline} from 'react-icons/io5';
 import MovieInfo from "../MovieInfo/MovieInfo.jsx";
+import {IoArrowBackOutline} from "react-icons/io5";
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState([]);
@@ -26,7 +26,7 @@ const MovieDetailsPage = () => {
       } catch (error) {
         console.log(error)
       }
-    };
+    }
     getMovies();
   }, [movieId]);
 
@@ -35,17 +35,17 @@ const MovieDetailsPage = () => {
       {load && <Loader/>}
       <div className={css.detail}>
         <NavLink to={goToBack} className={css.go_to_back}>
-          Go back
+          <IoArrowBackOutline/>Go back
         </NavLink>
       </div>
       {movie && (<MovieInfo movie={movie}/>)}
-      <div>
+      <div className={css.additional}>
         <hr/>
-        <span>Additional information</span>
-        <hr/>
-        <NavLink to='cast'>Cast</NavLink>
-        <br/>
-        <NavLink to='reviews'>Reviews</NavLink>
+        <h2>Additional information</h2>
+        <ul className={css.list}>
+          <li><NavLink to='cast'>Cast</NavLink></li>
+          <li><NavLink to='reviews'>Reviews</NavLink></li>
+        </ul>
         <Outlet/>
       </div>
 
