@@ -5,6 +5,7 @@ import defaultImg from '../../assets/defaultImg.png'
 
 const MovieList = ({movies}) => {
   const location = useLocation();
+  console.log(movies)
 
   return (
     <div>

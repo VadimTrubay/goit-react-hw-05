@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import css from './MovieDetailsPage.module.css';
 import {NavLink, Outlet, useLocation, useParams} from 'react-router-dom';
 import {getMovieById} from '../../services/movieApi.js';
@@ -12,7 +12,7 @@ const MovieDetailsPage = () => {
   const {movieId} = useParams();
   const location = useLocation();
 
-  const goToBack = location.state?.from ?? '/movies';
+  const goToBack = useRef(location.state?.from ?? '/movies');
 
   useEffect(() => {
     if (!movieId) return;
@@ -34,7 +34,7 @@ const MovieDetailsPage = () => {
     <div>
       {load && <Loader/>}
       <div className={css.detail}>
-        <NavLink to={goToBack} className={css.go_to_back}>
+        <NavLink to={goToBack.current} className={css.go_to_back}>
           <IoArrowBackOutline/>Go back
         </NavLink>
       </div>
